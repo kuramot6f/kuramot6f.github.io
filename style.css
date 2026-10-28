@@ -1,0 +1,43 @@
+:root {
+  color-scheme: light dark;
+  --ink: #000;
+  --paper: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #fff; --paper: #000; }
+}
+
+body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 20px;
+  color: var(--ink);
+  background: var(--paper);
+  font: 1.0625rem/1.7 "Alegreya", "Yuji Syuku", serif;
+}
+
+a { color: inherit; text-underline-offset: 4px; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-bottom: 40px; }
+header img { object-fit: cover; }
+
+h1, h2 { margin: 0; font-weight: 400; line-height: 1.3; }
+h1 { font-size: 1.75rem; }
+h2 { margin-bottom: 24px; font-size: 1.2rem; }
+
+section { padding: 32px 0; border-top: 1px solid var(--ink); }
+
+p { margin: 0; }
+p + p { margin-top: 8px; }
+
+dl { display: grid; grid-template-columns: 10em 1fr; gap: 28px 20px; margin: 0; }
+dd { margin: 0; }
+
+ul { display: flex; gap: 2em; margin: 0; padding: 0; list-style: none; }
+
+@media (max-width: 520px) {
+  dl { grid-template-columns: 1fr; gap: 0; }
+  dd + dt { margin-top: 24px; }
+}
