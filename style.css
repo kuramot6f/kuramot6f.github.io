@@ -42,3 +42,17 @@ ul { display: flex; gap: 2em; margin: 0; padding: 0; list-style: none; }
   dl { grid-template-columns: 1fr; gap: 0; }
   dd + dt { margin-top: 24px; }
 }
+
+/* print: always black on white, compact enough for one A4 / Letter page */
+@page { margin: 15mm; }
+
+@media print {
+  :root { color-scheme: light; --ink: #000; --paper: #fff; font-size: 13px; }
+  body { max-width: none; padding: 0; line-height: 1.45; }
+  header { margin-bottom: 20px; }
+  header img { width: 88px; height: 88px; }
+  h2 { margin-bottom: 10px; }
+  section { padding: 14px 0; break-inside: avoid; }
+  dl { grid-template-columns: 17em 1fr; gap: 12px 20px; }
+  a::after { content: "\A" attr(href); white-space: pre-line; overflow-wrap: anywhere; }
+}
